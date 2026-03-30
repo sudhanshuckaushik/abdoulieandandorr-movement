@@ -1,1 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdoulie Njai — Andandorr Movement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
+<!-- ═══════════════════════════════════════════════
+     ANDANDORR LOGO — defined once as <symbol>,
+     reused everywhere with <use>
+     ═══════════════════════════════════════════════ -->
+<svg width="0" height="0" style="position:absolute" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="andandorr-logo" viewBox="-105 -105 210 210" overflow="visible">
+      <!-- All elements centered at 0,0 — viewBox is symmetric so nothing clips -->
+
+      <!-- ── outer cowrie-shell ring (18 shells at 20° intervals, r=82) ── -->
+      <g fill="currentColor">
+        <g transform="rotate(0)   translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(20)  translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(40)  translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(60)  translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(80)  translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(100) translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(120) translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(140) translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(160) translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(180) translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(200) translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(220) translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(240) translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(260) translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(280) translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(300) translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(320) translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+        <g transform="rotate(340) translate(0,-82)"><ellipse rx="6.5" ry="10.5"/><ellipse rx="3.5" ry="7" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/></g>
+      </g>
+
+      <!-- ── globe circle ── -->
+      <circle r="64" fill="none" stroke="currentColor" stroke-width="2.2"/>
+
+      <!-- ── latitude lines ── -->
+      <line x1="-64" y1="0" x2="64" y2="0" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M -54,26 Q 0,20 54,26"   fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M -54,-26 Q 0,-20 54,-26" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M -36,50 Q 0,42 36,50"   fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M -36,-50 Q 0,-42 36,-50" fill="none" stroke="currentColor" stroke-width="1"/>
+
+      <!-- ── longitude / meridian lines ── -->
+      <line x1="0" y1="-64" x2="0" y2="64" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M 0,-64 Q 42,0 0,64"   fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M 0,-64 Q -42,0 0,64"  fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M 0,-64 Q 64,0 0,64"   fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M 0,-64 Q -64,0 0,64"  fill="none" stroke="currentColor" stroke-width="1"/>
+
+      <!-- ── centre oval with name ── -->
+      <ellipse rx="44" ry="20" fill="white" stroke="currentColor" stroke-width="1.8"/>
+      <text text-anchor="middle" dominant-baseline="middle"
+            font-family="'Cormorant Garamond', Georgia, serif"
+            font-size="16" font-weight="700" letter-spacing="0.8" fill="currentColor">Andadorr</text>
+    </symbol>
+  </defs>
+</svg>
+
+<style>
+:root {
+  --blue:      #1a2f7a;
+  --blue-deep: #0f1e54;
+  --gold:      #b8921c;
+  --gold-lt:   #d4aa3a;
+  --white:     #ffffff;
+  --off:       #f9f7f2;
+  --text:      #1a1a2e;
+  --muted:     #6b6b7e;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+
+/* ─── HERO GOLD PANEL (matches branding) ─── */
+.hero-gold{
+  background:#8c6d0a;position:relative;overflow:hidden;
+  min-height:calc(100vh - 70px);
+}
+.hero-gold img.hero-photo{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  display:block;filter:grayscale(100%);mix-blend-mode:luminosity;opacity:.7;
+}
+/* img logo replacements */
+.nav-logo-svg{width:42px;height:42px;object-fit:contain;mix-blend-mode:multiply;}
+.hero-logo-badge{width:90px;height:90px;object-fit:contain;margin-bottom:2rem;animation:fadeUp .8s ease both;mix-blend-mode:multiply;}
+.about-logo{width:80px;height:80px;object-fit:contain;margin-bottom:2rem;filter:brightness(0) invert(1);opacity:.15;}
+.contact-logo{width:90px;height:90px;object-fit:contain;margin-bottom:2rem;filter:brightness(0) invert(1);opacity:.1;}
+.foot-logo{width:36px;height:36px;object-fit:contain;filter:brightness(0) saturate(100%) invert(72%) sepia(55%) saturate(500%) hue-rotate(5deg);}
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 4rem;height:70px;
+  background:var(--white);
+  border-bottom:1px solid rgba(26,47,122,0.1);
+}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo-svg{width:44px;height:44px;color:var(--gold);}
+.nav-name{
+  font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;
+  color:var(--blue);line-height:1.1;letter-spacing:0.02em;
+}
+.nav-name span{
+  display:block;font-family:'Jost',sans-serif;font-size:0.56rem;font-weight:400;
+  letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-top:2px;
+}
+.nav-links{display:flex;gap:2.6rem;list-style:none;}
+.nav-links a{
+  font-family:'Jost',sans-serif;font-size:0.71rem;font-weight:400;
+  letter-spacing:0.17em;text-transform:uppercase;
+  color:var(--blue);text-decoration:none;opacity:.65;transition:opacity .2s,color .2s;
+}
+.nav-links a:hover{opacity:1;color:var(--gold);}
+.nav-cta{
+  font-family:'Jost',sans-serif;font-size:0.68rem;font-weight:500;
+  letter-spacing:0.14em;text-transform:uppercase;
+  background:var(--blue);color:var(--white);padding:.6rem 1.6rem;
+  text-decoration:none;border:1px solid var(--blue);transition:background .2s,color .2s;
+}
+.nav-cta:hover{background:var(--white);color:var(--blue);}
+
+/* ─── CHEVRON STRIP ─── */
+.chev{
+  width:20px;flex-shrink:0;background:var(--gold);
+  position:relative;overflow:hidden;
+}
+.chev svg{display:block;width:100%;height:100%;position:absolute;inset:0;}
+
+/* ─── HERO ─── */
+.hero{
+  display:grid;grid-template-columns:1fr 20px 1fr;
+  min-height:100vh;padding-top:70px;
+}
+.hero-blue-old{
+  display:none;
+}
+.hero-blue-old img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  display:block;filter:grayscale(100%);mix-blend-mode:luminosity;opacity:.72;
+}
+.hero-swirl{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.5;}
+.hero-white{
+  background:#f5f0e6;display:flex;flex-direction:column;
+  justify-content:center;padding:4rem 5rem 4rem 4.5rem;position:relative;
+}
+/* big hero logo watermark */
+.hero-logo-bg{
+  position:absolute;right:-30px;bottom:-20px;
+  width:260px;height:260px;opacity:.04;color:var(--blue);pointer-events:none;
+}
+.hero-logo-badge{
+  width:72px;height:72px;color:var(--gold);margin-bottom:2rem;
+  animation:fadeUp .8s ease both;
+}
+.hero-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.2rem,5.5vw,5rem);font-weight:700;
+  color:var(--gold);line-height:1.0;letter-spacing:-0.01em;
+  margin-bottom:.8rem;animation:fadeUp .85s ease .1s both;
+}
+.hero-rule{
+  width:100%;max-width:300px;height:1px;
+  background:linear-gradient(to right,var(--gold),transparent);
+  margin-bottom:.9rem;animation:fadeUp .85s ease .18s both;
+}
+.hero-sub{
+  font-family:'Jost',sans-serif;font-size:0.66rem;font-weight:400;
+  letter-spacing:0.26em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:2.5rem;animation:fadeUp .85s ease .24s both;
+}
+.hero-desc{
+  font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;
+  line-height:1.75;color:var(--text);max-width:400px;opacity:.82;
+  margin-bottom:2.8rem;animation:fadeUp .85s ease .32s both;
+}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .85s ease .4s both;}
+.btn-blue{
+  font-family:'Jost',sans-serif;font-size:0.67rem;font-weight:500;
+  letter-spacing:0.14em;text-transform:uppercase;
+  background:var(--blue);color:var(--white);padding:.85rem 2rem;
+  text-decoration:none;border:1px solid var(--blue);transition:all .2s;display:inline-block;
+}
+.btn-blue:hover{background:var(--white);color:var(--blue);}
+.btn-gold{
+  font-family:'Jost',sans-serif;font-size:0.67rem;font-weight:500;
+  letter-spacing:0.14em;text-transform:uppercase;
+  background:transparent;color:var(--gold);padding:.85rem 2rem;
+  text-decoration:none;border:1px solid var(--gold);transition:all .2s;display:inline-block;
+}
+.btn-gold:hover{background:var(--gold);color:var(--white);}
+.hero-founding{
+  position:absolute;bottom:2rem;left:4.5rem;
+  font-family:'Jost',sans-serif;font-size:0.58rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--muted);
+  display:flex;align-items:center;gap:.8rem;
+}
+.hero-founding::before{content:'';width:20px;height:1px;background:var(--gold);}
+
+/* ─── MARQUEE ─── */
+.marquee{background:var(--blue);height:44px;overflow:hidden;display:flex;align-items:center;}
+.marquee-track{display:inline-flex;animation:marquee 30s linear infinite;white-space:nowrap;}
+.mi{
+  font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:400;
+  letter-spacing:0.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);padding:0 2.2rem;
+}
+.mi.g{color:var(--gold-lt);font-weight:500;}
+
+/* ─── SHARED SECTION CHROME ─── */
+.eyebrow{
+  font-family:'Jost',sans-serif;font-size:0.61rem;font-weight:400;
+  letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);
+  display:flex;align-items:center;gap:.8rem;margin-bottom:1.1rem;
+}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--gold);flex-shrink:0;}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,3.8vw,3.2rem);font-weight:700;
+  color:var(--blue);line-height:1.08;margin-bottom:1.4rem;
+}
+.sec-title em{font-style:italic;color:var(--gold);}
+
+/* ─── PILLARS ─── */
+.pillars{padding:7rem 5rem;background:var(--off);}
+.pillars-head{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:5rem;align-items:end;}
+.pillars-intro{font-family:'Jost',sans-serif;font-size:.9rem;font-weight:300;line-height:1.9;color:var(--muted);padding-top:1rem;}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.pcard{
+  background:var(--white);padding:2.8rem 2.4rem;
+  border:1px solid rgba(26,47,122,.08);position:relative;overflow:hidden;
+  transition:transform .3s,border-color .3s;
+}
+.pcard::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:3px;
+  background:var(--gold);transform:scaleX(0);transition:transform .3s;transform-origin:left;
+}
+.pcard:hover{transform:translateY(-4px);border-color:rgba(26,47,122,.18);}
+.pcard:hover::before{transform:scaleX(1);}
+.pcard-num{
+  font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:700;
+  color:rgba(26,47,122,.05);line-height:1;margin-bottom:-1rem;
+}
+.pcard-line{width:28px;height:1.5px;background:var(--gold);margin-bottom:1.2rem;}
+.pcard-title{
+  font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;
+  color:var(--blue);line-height:1.2;margin-bottom:.8rem;
+}
+.pcard-body{font-family:'Jost',sans-serif;font-size:.88rem;font-weight:300;line-height:1.85;color:var(--muted);}
+
+/* ─── GALLERY ─── */
+.gallery{padding:7rem 5rem;background:var(--blue-deep);}
+.gallery-header{margin-bottom:3.5rem;}
+.gallery-header .eyebrow{color:var(--gold);}
+.gallery-header .eyebrow::before{background:var(--gold);}
+.gallery-header .sec-title{color:var(--white);}
+.gallery-header .sec-title em{color:var(--gold-lt);}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  grid-template-rows:300px 300px;
+  gap:6px;
+}
+.gallery-item{
+  position:relative;overflow:hidden;background:var(--blue);
+}
+.gallery-item img{
+  width:100%;height:100%;object-fit:cover;
+  display:block;transition:transform .5s ease;
+  filter:grayscale(15%);
+}
+.gallery-item:hover img{transform:scale(1.04);}
+.gallery-item--tall{grid-row:span 2;}
+.gallery-item--wide{grid-column:span 2;}
+.gallery-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:.9rem 1.2rem;
+  background:linear-gradient(to top,rgba(10,20,60,.85) 0%,transparent 100%);
+  font-family:'Jost',sans-serif;font-size:.68rem;font-weight:300;
+  letter-spacing:.08em;color:rgba(255,255,255,.75);
+  transform:translateY(4px);transition:transform .3s;
+}
+.gallery-item:hover .gallery-caption{transform:translateY(0);}
+.gallery-caption span{color:var(--gold-lt);font-weight:500;}
+
+/* ─── ABOUT ─── */
+.about{display:grid;grid-template-columns:20px 1fr 1fr;min-height:620px;}
+.about-photo{background:var(--blue);position:relative;overflow:hidden;}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(100%);mix-blend-mode:luminosity;opacity:.6;display:block;}
+.about-photo-ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(15,30,84,.35),transparent);}
+.about-content{background:var(--blue);padding:6rem 5rem;display:flex;flex-direction:column;justify-content:center;}
+.about-content .eyebrow{color:var(--gold-lt);}
+.about-content .eyebrow::before{background:var(--gold-lt);}
+.about-content .sec-title{color:var(--white);}
+.about-content .sec-title em{color:var(--gold-lt);}
+.about-body{font-family:'Jost',sans-serif;font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.65);margin-bottom:1.1rem;max-width:420px;}
+.about-stats{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:rgba(255,255,255,.1);margin:2.2rem 0;max-width:360px;
+}
+.stat-box{background:rgba(255,255,255,.03);padding:1.3rem 1.5rem;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--gold-lt);line-height:1;margin-bottom:.2rem;}
+.stat-l{font-family:'Jost',sans-serif;font-size:.58rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);}
+/* logo in about section */
+.about-logo{width:80px;height:80px;color:rgba(255,255,255,.12);margin-bottom:2rem;}
+
+/* ─── QUOTE ─── */
+.quote{padding:6rem 8rem;background:var(--white);text-align:center;position:relative;}
+.quote-bg-logo{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:280px;height:280px;color:var(--blue);opacity:.025;pointer-events:none;
+}
+.quote-mark{
+  font-family:'Cormorant Garamond',serif;font-size:12rem;font-weight:700;
+  color:rgba(26,47,122,.04);line-height:.5;
+  position:absolute;top:2.5rem;left:50%;transform:translateX(-50%);
+  pointer-events:none;user-select:none;
+}
+.quote-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.4rem,2.6vw,2rem);font-style:italic;font-weight:400;
+  color:var(--blue);line-height:1.6;max-width:760px;
+  margin:0 auto 1.6rem;position:relative;z-index:1;
+}
+.quote-rule{width:56px;height:1.5px;background:var(--gold);margin:0 auto 1.1rem;}
+.quote-attr{font-family:'Jost',sans-serif;font-size:.63rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
+
+/* ─── COMMUNITY ─── */
+.community{padding:7rem 5rem;background:var(--off);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
+.comm-img{position:relative;}
+.comm-img img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;}
+.comm-frame{position:absolute;top:20px;left:20px;right:-20px;bottom:-20px;border:1.5px solid var(--gold);z-index:-1;}
+.comm-tag{
+  position:absolute;bottom:24px;right:24px;background:var(--blue);
+  padding:.6rem 1rem;font-family:'Jost',sans-serif;font-size:.57rem;
+  font-weight:400;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.6);
+}
+.comm-text p{font-family:'Jost',sans-serif;font-size:.9rem;font-weight:300;line-height:1.9;color:var(--muted);margin-bottom:1.1rem;}
+
+/* ─── CONTACT ─── */
+.contact-wrap{background:var(--blue-deep);padding:7rem 5rem;display:grid;grid-template-columns:1fr 20px 1fr;gap:0;}
+.contact-l{padding-right:5rem;display:flex;flex-direction:column;justify-content:center;}
+.contact-l .eyebrow{color:var(--gold);}
+.contact-l .eyebrow::before{background:var(--gold);}
+.contact-l .sec-title{color:var(--white);}
+.contact-l .sec-title em{color:var(--gold-lt);}
+.contact-desc{font-family:'Jost',sans-serif;font-size:.88rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.5);margin-bottom:2.5rem;max-width:360px;}
+.contact-info{display:flex;flex-direction:column;gap:1.3rem;}
+.c-item{display:flex;gap:1.1rem;align-items:flex-start;}
+.c-icon{width:34px;height:34px;border:1px solid rgba(184,146,28,.3);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;color:var(--gold);}
+.c-lbl{font-family:'Jost',sans-serif;font-size:.57rem;font-weight:400;letter-spacing:.19em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:.2rem;}
+.c-val{font-family:'Jost',sans-serif;font-size:.88rem;font-weight:400;color:rgba(255,255,255,.78);}
+.c-val a{color:var(--gold-lt);text-decoration:none;}
+.contact-logo{width:90px;height:90px;color:rgba(255,255,255,.08);margin-bottom:2rem;}
+.contact-r{padding-left:5rem;display:flex;flex-direction:column;justify-content:center;}
+.fg{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.1rem;}
+.fl{font-family:'Jost',sans-serif;font-size:.58rem;font-weight:400;letter-spacing:.19em;text-transform:uppercase;color:rgba(255,255,255,.3);}
+.fi{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);
+  color:rgba(255,255,255,.82);padding:.72rem 1rem;
+  font-family:'Jost',sans-serif;font-size:.88rem;font-weight:300;
+  outline:none;transition:border-color .2s;width:100%;
+}
+.fi::placeholder{color:rgba(255,255,255,.2);}
+.fi:focus{border-color:var(--gold);}
+.fi-ta{resize:vertical;min-height:105px;}
+.fi-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.fi-select{appearance:none;cursor:pointer;}
+.fi-select option{background:#0f1e54;}
+.btn-submit{
+  font-family:'Jost',sans-serif;font-size:.67rem;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;
+  background:var(--gold);color:var(--blue-deep);border:none;
+  padding:.9rem 2.2rem;cursor:pointer;transition:background .2s;margin-top:.4rem;
+}
+.btn-submit:hover{background:var(--gold-lt);}
+
+
+/* ─── MP RECORD ─── */
+.mp-record{padding:7rem 5rem;background:var(--white);}
+.mp-record .eyebrow{color:var(--gold);}
+.mp-record .eyebrow::before{background:var(--gold);}
+.mp-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:4rem;}
+.mp-card{
+  border-left:3px solid var(--gold);
+  padding:1.8rem 2rem;
+  background:var(--off);
+  position:relative;
+  transition:transform .25s,box-shadow .25s;
+}
+.mp-card:hover{transform:translateX(4px);box-shadow:-4px 0 0 var(--blue);}
+.mp-card-icon{
+  font-size:1.4rem;margin-bottom:1rem;display:block;
+}
+.mp-card-title{
+  font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;
+  color:var(--blue);margin-bottom:.6rem;line-height:1.2;
+}
+.mp-card-body{
+  font-family:'Jost',sans-serif;font-size:.88rem;font-weight:300;
+  line-height:1.85;color:var(--muted);
+}
+.mp-card-tag{
+  display:inline-block;margin-top:.9rem;
+  font-family:'Jost',sans-serif;font-size:.58rem;font-weight:500;
+  letter-spacing:.15em;text-transform:uppercase;
+  color:var(--gold);border:1px solid var(--gold);
+  padding:.2rem .7rem;
+}
+.mp-highlight{
+  grid-column:span 2;
+  background:var(--blue);
+  border-left:3px solid var(--gold-lt);
+  padding:2.4rem 2.8rem;
+  display:flex;align-items:flex-start;gap:2rem;
+}
+.mp-highlight-icon{font-size:2.5rem;flex-shrink:0;}
+.mp-highlight-title{
+  font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;
+  color:var(--gold-lt);margin-bottom:.6rem;line-height:1.2;
+}
+.mp-highlight-body{
+  font-family:'Jost',sans-serif;font-size:.9rem;font-weight:300;
+  line-height:1.9;color:rgba(255,255,255,.7);
+}
+.mp-awards{
+  grid-column:span 2;
+  display:flex;gap:1.5rem;flex-wrap:wrap;
+  padding:2rem 0 0;
+  border-top:1px solid rgba(26,47,122,.1);
+  margin-top:1rem;
+}
+.mp-award-pill{
+  font-family:'Jost',sans-serif;font-size:.72rem;font-weight:400;
+  letter-spacing:.1em;
+  background:var(--off);border:1px solid rgba(26,47,122,.12);
+  color:var(--blue);padding:.5rem 1.1rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.mp-award-pill::before{content:'★';color:var(--gold);font-size:.8rem;}
+/* ─── FOOTER ─── */
+footer{
+  background:var(--blue);padding:2.5rem 5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid rgba(184,146,28,.16);
+}
+.foot-brand{display:flex;align-items:center;gap:10px;}
+.foot-logo{width:36px;height:36px;color:var(--gold);}
+.foot-name{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:700;color:var(--white);}
+.foot-name span{display:block;font-family:'Jost',sans-serif;font-size:.52rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-top:2px;}
+.foot-links{display:flex;gap:2rem;list-style:none;}
+.foot-links a{font-family:'Jost',sans-serif;font-size:.6rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s;}
+.foot-links a:hover{color:var(--gold-lt);}
+.foot-right{display:flex;flex-direction:column;align-items:flex-end;gap:.6rem;}
+.foot-copy{font-family:'Jost',sans-serif;font-size:.56rem;font-weight:400;letter-spacing:.1em;color:rgba(255,255,255,.22);}
+.foot-cyp{
+  font-family:'Jost',sans-serif;font-size:.62rem;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold-lt);text-decoration:none;
+  border-bottom:1px solid rgba(212,170,58,.3);
+  padding-bottom:1px;transition:color .2s,border-color .2s;
+}
+.foot-cyp:hover{color:var(--white);border-color:var(--white);}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="#" class="nav-brand">
+    <img src="images/logo.jpg" class="nav-logo-svg" alt="Andadorr logo">
+    <div class="nav-name">
+      Abdoulie Njai
+      <span>Andandorr Movement</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#pillars">Our Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get Involved</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <!-- Blue photo panel -->
+  <div class="hero-gold">
+    <img src="images/photo_portrait.jpg" alt="Hon. Abdoulie Njai" class="hero-photo">
+    <!-- White swirl overlays — echoing the branding slide -->
+    <svg class="hero-swirl" viewBox="0 0 500 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 430 70 Q 370 200 290 265 Q 210 330 275 450 Q 340 570 255 660"
+            stroke="white" stroke-width="42" fill="none" stroke-linecap="round" opacity=".25"/>
+      <path d="M 70 610 Q 140 490 95 370 Q 50 250 160 145 Q 225 88 310 70"
+            stroke="white" stroke-width="24" fill="none" stroke-linecap="round" opacity=".14"/>
+    </svg>
+  </div>
+
+  <!-- Gold chevron strip -->
+  <div class="chev">
+    <svg viewBox="0 0 20 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="cp" x="0" y="0" width="20" height="18" patternUnits="userSpaceOnUse">
+          <polygon points="10,2 18,15 2,15" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.3"/>
+        </pattern>
+      </defs>
+      <rect width="20" height="600" fill="url(#cp)"/>
+    </svg>
+  </div>
+
+  <!-- White content panel -->
+  <div class="hero-white">
+    <!-- Watermark logo in background -->
+    <img src="images/logo.jpg" class="hero-logo-badge" alt="Andadorr logo">
+
+    <h1 class="hero-name">Abdoulie<br>Njai</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">NAM, Banjul Central · Andandorr Movement</p>
+    <p class="hero-desc">"Andandorr" — togetherness in Wolof. A movement dedicated to youth political representation, national unity, and meaningful development across The Gambia.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-blue">Join the Movement</a>
+      <a href="#about" class="btn-gold">Our Mission</a>
+    </div>
+    <div class="hero-founding">Est. February 2022 · Banjul, The Gambia</div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="mi g">Youth Representation</span><span class="mi">·</span>
+    <span class="mi">National Unity</span><span class="mi">·</span>
+    <span class="mi g">Meaningful Development</span><span class="mi">·</span>
+    <span class="mi">Andandorr — Togetherness</span><span class="mi">·</span>
+    <span class="mi g">Banjul, The Gambia</span><span class="mi">·</span>
+    <span class="mi">Est. 2022</span><span class="mi">·</span>
+    <span class="mi g">Youth Representation</span><span class="mi">·</span>
+    <span class="mi">National Unity</span><span class="mi">·</span>
+    <span class="mi g">Meaningful Development</span><span class="mi">·</span>
+    <span class="mi">Andandorr — Togetherness</span><span class="mi">·</span>
+    <span class="mi g">Banjul, The Gambia</span><span class="mi">·</span>
+    <span class="mi">Est. 2022</span><span class="mi">·</span>
+  </div>
+</div>
+
+<!-- ═══ PILLARS ═══ -->
+<section class="pillars" id="pillars">
+  <div class="pillars-head">
+    <div>
+      <div class="eyebrow">Our Core Focus</div>
+      <h2 class="sec-title">What We <em>Do</em></h2>
+    </div>
+    <p class="pillars-intro">Driven by integrity, inclusivity, and accountability — the Andandorr Movement is a force for positive, lasting change across every community in The Gambia.</p>
+  </div>
+  <div class="pillars-grid">
+    <div class="pcard">
+      <div class="pcard-num">01</div>
+      <div class="pcard-line"></div>
+      <h3 class="pcard-title">Youth Political Representation</h3>
+      <p class="pcard-body">We champion the active participation of young people in political processes, believing youth voices are vital for shaping a more inclusive and representative democracy.</p>
+    </div>
+    <div class="pcard">
+      <div class="pcard-num">02</div>
+      <div class="pcard-line"></div>
+      <h3 class="pcard-title">National Unity</h3>
+      <p class="pcard-body">We build bridges between diverse communities across The Gambia, fostering mutual understanding and creating a harmonious society where all voices are heard and valued.</p>
+    </div>
+    <div class="pcard">
+      <div class="pcard-num">03</div>
+      <div class="pcard-line"></div>
+      <h3 class="pcard-title">Meaningful Development</h3>
+      <p class="pcard-body">We pursue development that genuinely improves lives — expanding access to education, healthcare, economic opportunity, and the full protection of human rights.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ IN ACTION GALLERY ═══ -->
+<section class="gallery" id="gallery">
+  <div class="gallery-header">
+    <div class="eyebrow">On the Ground</div>
+    <h2 class="sec-title">Hon. Abdoulie Njai <em>In Action</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item gallery-item--tall">
+      <img src="images/photo_parliament.jpg" alt="Speaking in the National Assembly">
+      <div class="gallery-caption"><span>National Assembly</span> · Banjul Central</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/photo_community.jpg" alt="Community outreach visit">
+      <div class="gallery-caption"><span>Community Engagement</span> · Banjul</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/photo_flood.jpg" alt="Flood response on the ground">
+      <div class="gallery-caption"><span>Flood Response</span> · Disaster Relief</div>
+    </div>
+    <div class="gallery-item gallery-item--wide">
+      <img src="images/photo_speaking.jpg" alt="Speaking at the Anti-Corruption Bill hearing">
+      <div class="gallery-caption"><span>Anti-Corruption Bill</span> · Legislative Session</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="about" id="about">
+  <!-- Gold chevron strip left -->
+  <div class="chev">
+    <svg viewBox="0 0 20 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="cp2" x="0" y="0" width="20" height="18" patternUnits="userSpaceOnUse">
+          <polygon points="10,2 18,15 2,15" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.3"/>
+        </pattern>
+      </defs>
+      <rect width="20" height="600" fill="url(#cp2)"/>
+    </svg>
+  </div>
+  <div class="about-photo">
+    <img src="images/photo_speaking.jpg" alt="Hon. Abdoulie Njai speaking in parliament">
+    <div class="about-photo-ov"></div>
+  </div>
+  <div class="about-content">
+    <img src="images/logo.jpg" class="about-logo" alt="Andadorr logo">
+    <div class="eyebrow">Who We Are</div>
+    <h2 class="sec-title">Driving Change<br>Through <em>Unity</em></h2>
+    <p class="about-body">The Andandorr Movement was established in Banjul in February 2022 as a dynamic, youth-led initiative dedicated to advocacy, representation, and development.</p>
+    <p class="about-body">Our name — "Andandorr" — means togetherness in Wolof, a cornerstone of everything we do. We exist to ensure that youth voices are heard in the political landscape of The Gambia and beyond.</p>
+    <div class="about-stats">
+      <div class="stat-box"><div class="stat-n">2022</div><div class="stat-l">Founded</div></div>
+      <div class="stat-box"><div class="stat-n">3</div><div class="stat-l">Core Pillars</div></div>
+      <div class="stat-box"><div class="stat-n">100%</div><div class="stat-l">Youth-Led</div></div>
+      <div class="stat-box"><div class="stat-n">1</div><div class="stat-l">Gambia, United</div></div>
+    </div>
+    <a href="#contact" class="btn-gold">Join the Movement</a>
+  </div>
+</section>
+
+<!-- ═══ QUOTE ═══ -->
+<section class="quote">
+  <div class="quote-mark">"</div>
+  <blockquote class="quote-text">To empower youth voices and ensure they are heard in the political landscape of Gambia and beyond — creating a society where national unity and meaningful development become our shared reality.</blockquote>
+  <div class="quote-rule"></div>
+  <p class="quote-attr">Mission Statement · Andandorr Movement · Est. 2022</p>
+</section>
+
+<!-- ═══ COMMUNITY ═══ -->
+<section class="community" id="community">
+  <div class="comm-img">
+    <img src="images/photo_child.jpg" alt="Hon. Abdoulie Njai in the community">
+    <div class="comm-frame"></div>
+    <div class="comm-tag">Banjul · Community Outreach</div>
+  </div>
+  <div class="comm-text">
+    <div class="eyebrow">Community First</div>
+    <h2 class="sec-title">Community-<br>Centered <em>Solutions</em></h2>
+    <p>We prioritize local communities and believe that solutions to our most pressing challenges often come from within. By empowering communities to lead their own development, we create sustainable, lasting change.</p>
+    <p>Our approach is holistic — addressing not just political representation, but the broader social and economic factors that shape our communities. We listen to diverse voices and create space for everyone to contribute to our shared future.</p>
+    <a href="#contact" class="btn-blue" style="margin-top:.5rem;display:inline-block;">Connect With Us</a>
+  </div>
+</section>
+
+
+<!-- ═══ MP RECORD ═══ -->
+<section class="mp-record" id="mp-record">
+  <div class="eyebrow">Legislative Record</div>
+  <h2 class="sec-title">Work as <em>Member of Parliament</em></h2>
+  <p style="font-family:'Jost',sans-serif;font-size:.95rem;font-weight:300;line-height:1.9;color:var(--muted);max-width:680px;margin-top:.5rem;">
+    Since his election to the National Assembly in 2022 as one of The Gambia's youngest ever MPs, Hon. Abdoulie Njai has built a record of bold legislation, regional leadership, and relentless advocacy for the people of Banjul Central.
+  </p>
+
+  <div class="mp-grid">
+
+    <!-- WAYPA Highlight -->
+    <div class="mp-highlight">
+      <div class="mp-highlight-icon">🌍</div>
+      <div>
+        <div class="mp-highlight-title">Founding Chairperson — WAYPA</div>
+        <div class="mp-highlight-body">
+          Hon. Njai founded and serves as Chairperson of the <strong style="color:var(--gold-lt)">West African Young Parliamentarians Network (WAYPA)</strong>, officially launched in Gompa City, Liberia in November 2025. The network unites young lawmakers from The Gambia, Nigeria, Sierra Leone and beyond to strengthen cross-border cooperation, amplify youth voices in governance, and build leadership capacity across West Africa. WAYPA represents a landmark step in youth-led regional parliamentary diplomacy.
+        </div>
+        <span class="mp-card-tag" style="border-color:var(--gold-lt);color:var(--gold-lt);margin-top:1.2rem;">Regional Leadership · Est. 2025</span>
+      </div>
+    </div>
+
+    <!-- Anti-Corruption Bill -->
+    <div class="mp-card">
+      <span class="mp-card-icon">⚖️</span>
+      <div class="mp-card-title">Anti-Corruption Bill Advocacy</div>
+      <p class="mp-card-body">A vocal champion for the reintroduction of the Anti-Corruption Bill in the National Assembly, Hon. Njai has consistently argued that accountability and transparency are foundational to Gambia's democratic future. His vocal advocacy in plenary sessions has kept this critical legislation in the national conversation.</p>
+      <span class="mp-card-tag">Legislation</span>
+    </div>
+
+    <!-- Rent Bill -->
+    <div class="mp-card">
+      <span class="mp-card-icon">🏠</span>
+      <div class="mp-card-title">Rent Bill Reform</div>
+      <p class="mp-card-body">Hon. Njai has championed the reintroduction of the Rent Bill, addressing the housing crisis in Banjul where rising rents are displacing residents. He has consistently advocated for tenant protections and regulatory reform to safeguard the right to affordable housing in urban Gambia.</p>
+      <span class="mp-card-tag">Housing · Urban Policy</span>
+    </div>
+
+    <!-- Constituency Secretariat -->
+    <div class="mp-card">
+      <span class="mp-card-icon">🏛️</span>
+      <div class="mp-card-title">Constituency Secretariat</div>
+      <p class="mp-card-body">Established a dedicated constituency secretariat for Banjul Central — a direct point of contact between residents and their elected representative, ensuring constituents have access to legislative support, welfare assistance, and a voice at the national level.</p>
+      <span class="mp-card-tag">Constituency Service</span>
+    </div>
+
+    <!-- McCarthy Square -->
+    <div class="mp-card">
+      <span class="mp-card-icon">🏟️</span>
+      <div class="mp-card-title">Defending McCarthy Square</div>
+      <p class="mp-card-body">When the Office of the President moved to unilaterally take over McCarthy Square from the Banjul City Council in 2025, Hon. Njai issued a formal press statement, cited the Local Government Act, and threatened legal action — defending Banjul's historic civic heart and the principle of local autonomy.</p>
+      <span class="mp-card-tag">Local Governance · 2025</span>
+    </div>
+
+    <!-- Climate & Environment -->
+    <div class="mp-card">
+      <span class="mp-card-icon">🌱</span>
+      <div class="mp-card-title">Climate & Environmental Action</div>
+      <p class="mp-card-body">As a member of the Global Parliamentarians on Climate Action and Country Focal Person for Parliamentarians for a Fossil-Free Future, Hon. Njai is driving policy reform through ECOLUM (Ecology and Environmental Luminaries), converting innovative ideas into sustainable environmental impacts across The Gambia.</p>
+      <span class="mp-card-tag">Climate · Environment</span>
+    </div>
+
+    <!-- Digital Governance -->
+    <div class="mp-card">
+      <span class="mp-card-icon">📡</span>
+      <div class="mp-card-title">Digital Governance & Regulatory Oversight</div>
+      <p class="mp-card-body">Called for thorough regulatory scrutiny of Starlink's licensing process in The Gambia, raising concerns about spectrum allocation, cybersecurity, data governance, and national security. His position: that innovation and regulatory diligence are not mutually exclusive, and that approvals must carry legitimacy.</p>
+      <span class="mp-card-tag">Technology Policy · 2026</span>
+    </div>
+
+    <!-- Unity Foundation & Community -->
+    <div class="mp-card">
+      <span class="mp-card-icon">🤝</span>
+      <div class="mp-card-title">Unity Foundation & Community Work</div>
+      <p class="mp-card-body">As co-founder of the Unity Foundation, Hon. Njai has led food distributions, Medicare provisions, borehole projects, blood donation drives, and orphan assistance across Greater Banjul and rural Gambia. During The Gambia's 2016 political crisis, he remained in-country and mobilised resources for citizens stranded at the border.</p>
+      <span class="mp-card-tag">Humanitarian · Civil Society</span>
+    </div>
+
+    <!-- Awards row -->
+    <div class="mp-awards">
+      <div class="mp-award-pill">African Icon Award 2022</div>
+      <div class="mp-award-pill">Youngest MP in the Sahel Region</div>
+      <div class="mp-award-pill">Global Peace Ambassador 2020</div>
+      <div class="mp-award-pill">OECD Global Parliamentary Network</div>
+      <div class="mp-award-pill">Deputy Speaker, International Youth Parliament</div>
+      <div class="mp-award-pill">Under-30 Global List — Young India Foundation</div>
+      <div class="mp-award-pill">G20 GCAP Alumni</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="contact-wrap" id="contact">
+  <div class="contact-l">
+    <img src="images/logo.jpg" class="contact-logo" alt="Andadorr logo">
+    <div class="eyebrow">Get In Touch</div>
+    <h2 class="sec-title">Ready to Make<br>a <em>Difference</em>?</h2>
+    <p class="contact-desc">Join us in advocating for change and participating in our activities. Together, we can create a lasting impact across The Gambia.</p>
+    <div class="contact-info">
+      <div class="c-item">
+        <div class="c-icon">📍</div>
+        <div><div class="c-lbl">Location</div><div class="c-val">Banjul, The Gambia</div></div>
+      </div>
+      <div class="c-item">
+        <div class="c-icon">✉</div>
+        <div><div class="c-lbl">Email</div><div class="c-val"><a href="/cdn-cgi/l/email-protection#026b6c646d426a6d6c6360666d776e6b676c68636b2c616d6f"><span class="__cf_email__" data-cfemail="8ee7e0e8e1cee6e1e0efeceae1fbe2e7ebe0e4efe7a0ede1e3">[email&#160;protected]</span></a></div></div>
+      </div>
+      <div class="c-item">
+        <div class="c-icon">◎</div>
+        <div><div class="c-lbl">Movement</div><div class="c-val">Andandorr — Togetherness</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gold chevron strip center -->
+  <div class="chev">
+    <svg viewBox="0 0 20 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="cp3" x="0" y="0" width="20" height="18" patternUnits="userSpaceOnUse">
+          <polygon points="10,2 18,15 2,15" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.3"/>
+        </pattern>
+      </defs>
+      <rect width="20" height="600" fill="url(#cp3)"/>
+    </svg>
+  </div>
+
+  <div class="contact-r">
+    <form onsubmit="return false;" style="display:flex;flex-direction:column;">
+      <div class="fi-row">
+        <div class="fg"><label class="fl">First Name</label><input type="text" class="fi" placeholder="Aminata"></div>
+        <div class="fg"><label class="fl">Last Name</label><input type="text" class="fi" placeholder="Diallo"></div>
+      </div>
+      <div class="fg"><label class="fl">Email Address</label><input type="email" class="fi" placeholder="aminata@example.com"></div>
+      <div class="fg">
+        <label class="fl">How You'd Like to Help</label>
+        <select class="fi fi-select">
+          <option value="" disabled selected>Select an option</option>
+          <option>Volunteer</option>
+          <option>Membership</option>
+          <option>Partnership / Organisation</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">Your Message</label><textarea class="fi fi-ta" placeholder="Tell us how you'd like to get involved..."></textarea></div>
+      <button type="submit" class="btn-submit">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="foot-brand">
+    <img src="images/logo.jpg" class="foot-logo" alt="Andadorr logo">
+    <div class="foot-name">
+      Abdoulie Njai — Andandorr Movement
+      <span>© 2025 · All rights reserved · Banjul, The Gambia</span>
+    </div>
+  </div>
+  <ul class="foot-links">
+    <li><a href="#pillars">Our Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#community">Community<"></a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="foot-right">
+    <div class="foot-copy">Andandorr · Togetherness</div>
+    <a href="https://centreforyouthpolicy.org" target="_blank" class="foot-cyp">
+      Centre for Youth Policy
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
