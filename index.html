@@ -484,12 +484,12 @@ nav{
   grid-column:span 3;
   background:var(--blue);
   padding:2.8rem 3rem;
-  display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;
+  display:grid;grid-template-columns:1fr 380px;gap:2rem;align-items:center;
   margin-top:.5rem;
 }
 .nl-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:.4rem;}
 .nl-sub{font-family:'Jost',sans-serif;font-size:.88rem;font-weight:300;color:rgba(255,255,255,.6);}
-.nl-form{display:flex;gap:.8rem;align-items:center;flex-shrink:0;}
+.nl-form{display:flex;gap:.8rem;align-items:center;flex-shrink:0;min-width:320px;}
 .nl-input{
   background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
   color:var(--white);padding:.7rem 1.2rem;
@@ -825,18 +825,25 @@ footer{
       <div class="pub-excerpt">Coverage of the landmark launch of the West African Young Parliamentarians Network in Liberia, with Hon. Njai's address as Founding Chairperson.</div>
     </a>
 
-    <!-- Newsletter signup -->
+    <!-- Substack newsletter embed -->
     <div class="newsletter-box">
       <div>
         <div class="nl-title">Stay Informed</div>
-        <div class="nl-sub">Subscribe for updates on legislation, community work, and movement news from Hon. Njai's office.</div>
+        <div class="nl-sub">Subscribe for updates on legislation, community work, and movement news from Hon. Njai's office — delivered to your inbox via Substack.</div>
       </div>
       <div class="nl-form">
-        <input type="email" class="nl-input" placeholder="your@email.com">
-        <button class="nl-btn" type="button">Subscribe →</button>
+        <iframe src="https://honabdoulienjai.substack.com/embed"
+          width="100%" height="60"
+          style="border:none;background:transparent;overflow:hidden;"
+          frameborder="0" scrolling="no">
+        </iframe>
       </div>
     </div>
 
+  </div>
+  <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(26,47,122,.1);display:flex;align-items:center;justify-content:space-between;">
+    <span style="font-family:'Jost',sans-serif;font-size:.82rem;font-weight:300;color:var(--muted);">All newsletters and op-eds published on Substack</span>
+    <a href="https://honabdoulienjai.substack.com" target="_blank" style="font-family:'Jost',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);border:1px solid var(--blue);padding:.45rem 1rem;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='var(--blue)';this.style.color='white'" onmouseout="this.style.background='transparent';this.style.color='var(--blue)'">View All on Substack →</a>
   </div>
 </section>
 
