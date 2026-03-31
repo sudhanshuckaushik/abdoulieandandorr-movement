@@ -1082,15 +1082,17 @@ function toggleAccolades() {
   </div>
 
   <div class="contact-r">
-    <form onsubmit="return false;" style="display:flex;flex-direction:column;">
+    <form action="https://formspree.io/f/maqlwevw" method="POST" style="display:flex;flex-direction:column;">
+      <input type="hidden" name="_subject" value="New message from Andandorr Movement website">
+      <input type="hidden" name="_next" value="https://sudhanshuckaushik.github.io/abdoulieandandorr-movement/#contact">
       <div class="fi-row">
-        <div class="fg"><label class="fl">First Name</label><input type="text" class="fi" placeholder="Aminata"></div>
-        <div class="fg"><label class="fl">Last Name</label><input type="text" class="fi" placeholder="Diallo"></div>
+        <div class="fg"><label class="fl">First Name</label><input type="text" class="fi" name="first_name" placeholder="Aminata" required></div>
+        <div class="fg"><label class="fl">Last Name</label><input type="text" class="fi" name="last_name" placeholder="Diallo" required></div>
       </div>
-      <div class="fg"><label class="fl">Email Address</label><input type="email" class="fi" placeholder="aminata@example.com"></div>
+      <div class="fg"><label class="fl">Email Address</label><input type="email" class="fi" name="email" placeholder="aminata@example.com" required></div>
       <div class="fg">
         <label class="fl">How You'd Like to Help</label>
-        <select class="fi fi-select">
+        <select class="fi fi-select" name="involvement">
           <option value="" disabled selected>Select an option</option>
           <option>Volunteer</option>
           <option>Membership</option>
@@ -1098,7 +1100,7 @@ function toggleAccolades() {
           <option>General Enquiry</option>
         </select>
       </div>
-      <div class="fg"><label class="fl">Your Message</label><textarea class="fi fi-ta" placeholder="Tell us how you'd like to get involved..."></textarea></div>
+      <div class="fg"><label class="fl">Your Message</label><textarea class="fi fi-ta" name="message" placeholder="Tell us how you'd like to get involved..."></textarea></div>
       <button type="submit" class="btn-submit">Send Message →</button>
     </form>
   </div>
