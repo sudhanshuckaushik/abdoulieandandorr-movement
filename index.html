@@ -446,6 +446,127 @@ nav{
   display:flex;align-items:center;gap:.5rem;
 }
 .mp-award-pill::before{content:'★';color:var(--gold);font-size:.8rem;}
+
+/* ─── PUBLICATIONS ─── */
+.publications{padding:7rem 5rem;background:var(--off);}
+.pub-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-top:4rem;}
+.pub-card{
+  background:var(--white);padding:2.4rem 2.2rem;
+  border:1px solid rgba(26,47,122,.08);
+  position:relative;overflow:hidden;
+  transition:transform .25s,border-color .25s;
+  text-decoration:none;display:block;color:inherit;
+}
+.pub-card:hover{transform:translateY(-4px);border-color:var(--gold);}
+.pub-card::after{
+  content:'→';position:absolute;bottom:1.4rem;right:1.6rem;
+  font-size:1.2rem;color:var(--gold);opacity:0;transition:opacity .2s,transform .2s;
+  transform:translateX(-6px);
+}
+.pub-card:hover::after{opacity:1;transform:translateX(0);}
+.pub-type{
+  font-family:'Jost',sans-serif;font-size:.58rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--white);background:var(--blue);
+  padding:.25rem .7rem;display:inline-block;margin-bottom:1.2rem;
+}
+.pub-type.gold{background:var(--gold);}
+.pub-type.green{background:#2a7a4a;}
+.pub-title{
+  font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;
+  color:var(--blue);line-height:1.3;margin-bottom:.7rem;
+}
+.pub-meta{font-family:'Jost',sans-serif;font-size:.78rem;font-weight:300;color:var(--muted);margin-bottom:.6rem;}
+.pub-excerpt{font-family:'Jost',sans-serif;font-size:.85rem;font-weight:300;line-height:1.8;color:var(--muted);}
+
+/* Newsletter box */
+.newsletter-box{
+  grid-column:span 3;
+  background:var(--blue);
+  padding:2.8rem 3rem;
+  display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;
+  margin-top:.5rem;
+}
+.nl-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:.4rem;}
+.nl-sub{font-family:'Jost',sans-serif;font-size:.88rem;font-weight:300;color:rgba(255,255,255,.6);}
+.nl-form{display:flex;gap:.8rem;align-items:center;flex-shrink:0;}
+.nl-input{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  color:var(--white);padding:.7rem 1.2rem;
+  font-family:'Jost',sans-serif;font-size:.85rem;outline:none;width:240px;
+  transition:border-color .2s;
+}
+.nl-input::placeholder{color:rgba(255,255,255,.35);}
+.nl-input:focus{border-color:var(--gold);}
+.nl-btn{
+  font-family:'Jost',sans-serif;font-size:.67rem;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;
+  background:var(--gold);color:var(--blue-deep);border:none;
+  padding:.7rem 1.6rem;cursor:pointer;white-space:nowrap;
+  transition:background .2s;
+}
+.nl-btn:hover{background:var(--gold-lt);}
+
+/* ─── ACCOLADES DROPDOWN ─── */
+.accolades{padding:5rem 5rem;background:var(--white);}
+.accolades-toggle{
+  display:flex;align-items:center;justify-content:space-between;
+  cursor:pointer;padding:1.8rem 2.4rem;
+  background:var(--blue);
+  user-select:none;
+  transition:background .2s;
+}
+.accolades-toggle:hover{background:var(--blue-deep);}
+.accolades-toggle-left{display:flex;align-items:center;gap:1.2rem;}
+.accolades-toggle-title{
+  font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;
+  color:var(--white);
+}
+.accolades-toggle-sub{
+  font-family:'Jost',sans-serif;font-size:.7rem;font-weight:300;
+  letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);
+}
+.accolades-arrow{
+  font-size:1.2rem;color:var(--gold-lt);
+  transition:transform .3s;display:flex;align-items:center;
+}
+.accolades-arrow.open{transform:rotate(180deg);}
+.accolades-panel{
+  display:none;
+  background:var(--off);
+  border:1px solid rgba(26,47,122,.1);
+  border-top:none;
+}
+.accolades-panel.open{display:block;}
+.accolades-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;
+}
+.accolade-item{
+  padding:1.8rem 2rem;
+  border-right:1px solid rgba(26,47,122,.08);
+  border-bottom:1px solid rgba(26,47,122,.08);
+  transition:background .2s;
+}
+.accolade-item:nth-child(3n){border-right:none;}
+.accolade-item:hover{background:rgba(26,47,122,.03);}
+.accolade-item a{text-decoration:none;display:block;}
+.accolade-star{color:var(--gold);font-size:.9rem;margin-bottom:.5rem;}
+.accolade-name{
+  font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;
+  color:var(--blue);line-height:1.3;margin-bottom:.3rem;
+}
+.accolade-item a:hover .accolade-name{color:var(--gold);}
+.accolade-org{
+  font-family:'Jost',sans-serif;font-size:.72rem;font-weight:300;
+  color:var(--muted);letter-spacing:.05em;
+}
+.accolade-link-label{
+  font-family:'Jost',sans-serif;font-size:.6rem;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin-top:.5rem;display:inline-block;
+}
+
 /* ─── FOOTER ─── */
 footer{
   background:var(--blue);padding:2.5rem 5rem;
@@ -482,14 +603,16 @@ footer{
   <a href="#" class="nav-brand">
     <img src="images/logo.jpg" class="nav-logo-svg" alt="Andadorr logo">
     <div class="nav-name">
-      Abdoulie Njai
+      Hon. Abdoulie Njai
       <span>Andandorr Movement</span>
     </div>
   </a>
   <ul class="nav-links">
     <li><a href="#pillars">Our Work</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#publications">Publications</a></li>
     <li><a href="#community">Community</a></li>
+    <li><a href="#accolades">Accolades</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Get Involved</a>
@@ -526,7 +649,7 @@ footer{
     <!-- Watermark logo in background -->
     <img src="images/logo.jpg" class="hero-logo-badge" alt="Andadorr logo">
 
-    <h1 class="hero-name">Abdoulie<br>Njai</h1>
+    <h1 class="hero-name">Hon. Abdoulie<br>Njai</h1>
     <div class="hero-rule"></div>
     <p class="hero-sub">NAM, Banjul Central · Andandorr Movement</p>
     <p class="hero-desc">"Andandorr" — togetherness in Wolof. A movement dedicated to youth political representation, national unity, and meaningful development across The Gambia.</p>
@@ -575,7 +698,7 @@ footer{
     <div class="pcard">
       <div class="pcard-num">02</div>
       <div class="pcard-line"></div>
-      <h3 class="pcard-title">National Unity</h3>
+      <h3 class="pcard-title">National and Regional Unity</h3>
       <p class="pcard-body">We build bridges between diverse communities across The Gambia, fostering mutual understanding and creating a harmonious society where all voices are heard and valued.</p>
     </div>
     <div class="pcard">
@@ -671,6 +794,52 @@ footer{
 </section>
 
 
+
+<!-- ═══ PUBLICATIONS & OP-EDS ═══ -->
+<section class="publications" id="publications">
+  <div class="eyebrow">Thought Leadership</div>
+  <h2 class="sec-title">Publications, <em>Op-Eds</em> & Updates</h2>
+  <p style="font-family:'Jost',sans-serif;font-size:.92rem;font-weight:300;line-height:1.85;color:var(--muted);max-width:620px;margin-top:.5rem;">
+    Commentary, analysis, and statements from Hon. Abdoulie Njai on governance, youth leadership, and Gambian policy.
+  </p>
+  <div class="pub-grid">
+
+    <a class="pub-card" href="https://voiceoutdigital.com/banjul-central-nam-urges-thorough-review-of-starlink-licensing-process/" target="_blank">
+      <span class="pub-type">Op-Ed</span>
+      <div class="pub-title">Due Diligence Is Not Delay: The Starlink Debate</div>
+      <div class="pub-meta">Voice Out Digital · February 2026</div>
+      <div class="pub-excerpt">Why regulatory approvals for critical digital infrastructure should not be rushed under diplomatic pressure — and why innovation and diligence are not mutually exclusive.</div>
+    </a>
+
+    <a class="pub-card" href="https://allafrica.com/stories/202503190032.html" target="_blank">
+      <span class="pub-type gold">Statement</span>
+      <div class="pub-title">Defending McCarthy Square from Presidential Takeover</div>
+      <div class="pub-meta">AllAfrica · March 2025</div>
+      <div class="pub-excerpt">Hon. Njai's formal press statement citing the Local Government Act and calling on citizens to resist the unilateral takeover of Banjul's historic civic public space.</div>
+    </a>
+
+    <a class="pub-card" href="https://thepoint.gm/africa/gambia/national-news/wlafricas-young-lawmakers-unite-as-new-regional-network-launched-in-liberia" target="_blank">
+      <span class="pub-type green">Regional</span>
+      <div class="pub-title">WAYPA Launch: West Africa's Young Lawmakers Unite</div>
+      <div class="pub-meta">The Point · November 2025</div>
+      <div class="pub-excerpt">Coverage of the landmark launch of the West African Young Parliamentarians Network in Liberia, with Hon. Njai's address as Founding Chairperson.</div>
+    </a>
+
+    <!-- Newsletter signup -->
+    <div class="newsletter-box">
+      <div>
+        <div class="nl-title">Stay Informed</div>
+        <div class="nl-sub">Subscribe for updates on legislation, community work, and movement news from Hon. Njai's office.</div>
+      </div>
+      <div class="nl-form">
+        <input type="email" class="nl-input" placeholder="your@email.com">
+        <button class="nl-btn" type="button">Subscribe →</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ═══ MP RECORD ═══ -->
 <section class="mp-record" id="mp-record">
   <div class="eyebrow">Legislative Record</div>
@@ -685,9 +854,9 @@ footer{
     <div class="mp-highlight">
       <div class="mp-highlight-icon">🌍</div>
       <div>
-        <div class="mp-highlight-title">Founding Chairperson — WAYPA</div>
+        <div class="mp-highlight-title">Co-Founding Chairperson — WAYPA</div>
         <div class="mp-highlight-body">
-          Hon. Njai founded and serves as Chairperson of the <strong style="color:var(--gold-lt)">West African Young Parliamentarians Network (WAYPA)</strong>, officially launched in Gompa City, Liberia in November 2025. The network unites young lawmakers from The Gambia, Nigeria, Sierra Leone and beyond to strengthen cross-border cooperation, amplify youth voices in governance, and build leadership capacity across West Africa. WAYPA represents a landmark step in youth-led regional parliamentary diplomacy.
+          Hon. Njai co-founded and serves as Chairperson of the <strong style="color:var(--gold-lt)">West African Young Parliamentarians Network (WAYPA)</strong>, officially launched in Gompa City, Liberia in November 2025. The network unites young lawmakers from The Gambia, Nigeria, Sierra Leone and beyond to strengthen cross-border cooperation, amplify youth voices in governance, and build leadership capacity across West Africa. WAYPA represents a landmark step in youth-led regional parliamentary diplomacy.
         </div>
         <span class="mp-card-tag" style="border-color:var(--gold-lt);color:var(--gold-lt);margin-top:1.2rem;">Regional Leadership · Est. 2025</span>
       </div>
@@ -705,7 +874,7 @@ footer{
     <div class="mp-card">
       <span class="mp-card-icon">🏠</span>
       <div class="mp-card-title">Rent Bill Reform</div>
-      <p class="mp-card-body">Hon. Njai has championed the reintroduction of the Rent Bill, addressing the housing crisis in Banjul where rising rents are displacing residents. He has consistently advocated for tenant protections and regulatory reform to safeguard the right to affordable housing in urban Gambia.</p>
+      <p class="mp-card-body">Hon. Njai championed major amendments to the Rent Bill, pushing for stronger tenant protections and regulatory reform to safeguard the right to affordable housing across urban Gambia, particularly for residents of Banjul facing rising rents.</p>
       <span class="mp-card-tag">Housing · Urban Policy</span>
     </div>
 
@@ -762,6 +931,120 @@ footer{
 
   </div>
 </section>
+
+
+
+<!-- ═══ ACCOLADES & ACHIEVEMENTS ═══ -->
+<section class="accolades" id="accolades">
+  <div class="eyebrow">Recognition</div>
+  <h2 class="sec-title" style="margin-bottom:2rem;">Accolades & <em>Achievements</em></h2>
+
+  <div class="accolades-toggle" onclick="toggleAccolades()">
+    <div class="accolades-toggle-left">
+      <div>
+        <div class="accolades-toggle-title">Awards, Networks & International Recognition</div>
+        <div class="accolades-toggle-sub">7 accolades · click to expand</div>
+      </div>
+    </div>
+    <div class="accolades-arrow" id="accoladesArrow">▾</div>
+  </div>
+
+  <div class="accolades-panel" id="accoladesPanel">
+    <div class="accolades-grid">
+
+      <div class="accolade-item">
+        <a href="https://assembly.gm/?author=1" target="_blank">
+          <div class="accolade-star">★</div>
+          <div class="accolade-name">African Icon Award 2022</div>
+          <div class="accolade-org">Youth Network for Positive Change · Gambia National Assembly</div>
+          <span class="accolade-link-label">View Recognition →</span>
+        </a>
+      </div>
+
+      <div class="accolade-item">
+        <a href="https://www.linkedin.com/in/hon-abdoulie-njai-712418143/" target="_blank">
+          <div class="accolade-star">★</div>
+          <div class="accolade-name">Youngest Parliamentarian in the Sahel Region</div>
+          <div class="accolade-org">Gambia National Assembly · Elected 2022</div>
+          <span class="accolade-link-label">LinkedIn Profile →</span>
+        </a>
+      </div>
+
+      <div class="accolade-item">
+        <a href="https://www.oecd-events.org/oecd-global-parliamentary-network-members/en/speaker/b2ee4614-f477-ef11-9c35-6045bd8cf406/abdoulie-njai-" target="_blank">
+          <div class="accolade-star">★</div>
+          <div class="accolade-name">OECD Global Parliamentary Network</div>
+          <div class="accolade-org">Organisation for Economic Co-operation and Development</div>
+          <span class="accolade-link-label">View Profile →</span>
+        </a>
+      </div>
+
+      <div class="accolade-item">
+        <a href="https://thepoint.gm/africa/gambia/national-news/wlafricas-young-lawmakers-unite-as-new-regional-network-launched-in-liberia" target="_blank">
+          <div class="accolade-star">★</div>
+          <div class="accolade-name">Co-Founding Chairperson, WAYPA</div>
+          <div class="accolade-org">West African Young Parliamentarians Network · Est. 2025</div>
+          <span class="accolade-link-label">Read Coverage →</span>
+        </a>
+      </div>
+
+      <div class="accolade-item">
+        <a href="https://www.linkedin.com/in/hon-abdoulie-njai-712418143/" target="_blank">
+          <div class="accolade-star">★</div>
+          <div class="accolade-name">Global Peace Ambassador 2020</div>
+          <div class="accolade-org">Global Peace Chain · International Appointment</div>
+          <span class="accolade-link-label">LinkedIn →</span>
+        </a>
+      </div>
+
+      <div class="accolade-item">
+        <a href="https://www.oecd-events.org/oecd-global-parliamentary-network-members/en/speaker/b2ee4614-f477-ef11-9c35-6045bd8cf406/abdoulie-njai-" target="_blank">
+          <div class="accolade-star">★</div>
+          <div class="accolade-name">Deputy Speaker, International Youth Parliament</div>
+          <div class="accolade-org">International Youth Parliament · Addis Ababa</div>
+          <span class="accolade-link-label">View Bio →</span>
+        </a>
+      </div>
+
+      <div class="accolade-item">
+        <a href="https://www.oecd-events.org/oecd-global-parliamentary-network-members/en/speaker/b2ee4614-f477-ef11-9c35-6045bd8cf406/abdoulie-njai-" target="_blank">
+          <div class="accolade-star">★</div>
+          <div class="accolade-name">Under-30 Global List — Politics & Policy</div>
+          <div class="accolade-org">Young India Foundation · Distinguished Youth Personalities</div>
+          <span class="accolade-link-label">OECD Bio →</span>
+        </a>
+      </div>
+
+      <div class="accolade-item">
+        <a href="https://www.oecd-events.org/oecd-global-parliamentary-network-members/en/speaker/b2ee4614-f477-ef11-9c35-6045bd8cf406/abdoulie-njai-" target="_blank">
+          <div class="accolade-star">★</div>
+          <div class="accolade-name">G20 GCAP Alumni</div>
+          <div class="accolade-org">Global Parliamentary Network · Climate Action</div>
+          <span class="accolade-link-label">Learn More →</span>
+        </a>
+      </div>
+
+      <div class="accolade-item">
+        <a href="https://www.oecd-events.org/oecd-global-parliamentary-network-members/en/speaker/b2ee4614-f477-ef11-9c35-6045bd8cf406/abdoulie-njai-" target="_blank">
+          <div class="accolade-star">★</div>
+          <div class="accolade-name">Country Focal Person — Fossil-Free Future</div>
+          <div class="accolade-org">Parliamentarians for a Fossil-Free Future · The Gambia</div>
+          <span class="accolade-link-label">View Profile →</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleAccolades() {
+  const panel = document.getElementById('accoladesPanel');
+  const arrow = document.getElementById('accoladesArrow');
+  panel.classList.toggle('open');
+  arrow.classList.toggle('open');
+}
+</script>
 
 <!-- ═══ CONTACT ═══ -->
 <section class="contact-wrap" id="contact">
@@ -826,7 +1109,7 @@ footer{
   <div class="foot-brand">
     <img src="images/logo.jpg" class="foot-logo" alt="Andadorr logo">
     <div class="foot-name">
-      Abdoulie Njai — Andandorr Movement
+      Hon. Abdoulie Njai — Andandorr Movement
       <span>© 2025 · All rights reserved · Banjul, The Gambia</span>
     </div>
   </div>
@@ -834,6 +1117,7 @@ footer{
     <li><a href="#pillars">Our Work</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#community">Community<"></a></li>
+    <li><a href="#accolades">Accolades</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="foot-right">
