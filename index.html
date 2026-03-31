@@ -484,7 +484,7 @@ nav{
   grid-column:span 3;
   background:var(--blue);
   padding:2.8rem 3rem;
-  display:grid;grid-template-columns:1fr 380px;gap:2rem;align-items:center;
+  display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;
   margin-top:.5rem;
 }
 .nl-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:.4rem;}
@@ -825,19 +825,21 @@ footer{
       <div class="pub-excerpt">Coverage of the landmark launch of the West African Young Parliamentarians Network in Liberia, with Hon. Njai's address as Founding Chairperson.</div>
     </a>
 
-    <!-- Substack newsletter embed -->
+    <!-- Substack native form - no iframe -->
     <div class="newsletter-box">
       <div>
         <div class="nl-title">Stay Informed</div>
-        <div class="nl-sub">Subscribe for updates on legislation, community work, and movement news from Hon. Njai's office — delivered to your inbox via Substack.</div>
+        <div class="nl-sub">Subscribe for updates on legislation, community work, and movement news from Hon. Njai's office.</div>
       </div>
-      <div class="nl-form">
-        <iframe src="https://honabdoulienjai.substack.com/embed"
-          width="100%" height="60"
-          style="border:none;background:transparent;overflow:hidden;"
-          frameborder="0" scrolling="no">
-        </iframe>
-      </div>
+      <form
+        action="https://honabdoulienjai.substack.com/api/v1/free?nojs=true"
+        method="post"
+        class="nl-form"
+        target="_blank"
+        onsubmit="this.querySelector('.nl-btn').textContent='Subscribing…'">
+        <input type="email" name="email" class="nl-input" placeholder="your@email.com" required autocomplete="email">
+        <button type="submit" class="nl-btn">Subscribe →</button>
+      </form>
     </div>
 
   </div>
