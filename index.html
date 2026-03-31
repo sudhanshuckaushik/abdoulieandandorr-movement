@@ -1082,17 +1082,33 @@ function toggleAccolades() {
   </div>
 
   <div class="contact-r">
-    <form action="https://formspree.io/f/maqlwevw" method="POST" style="display:flex;flex-direction:column;">
-      <input type="hidden" name="_subject" value="New message from Andandorr Movement website">
-      <input type="hidden" name="_next" value="https://sudhanshuckaushik.github.io/abdoulieandandorr-movement/#contact">
+    <!-- Formspree success / error banners -->
+    <div data-fs-success style="display:none;font-family:'Jost',sans-serif;font-size:.88rem;color:#2a7a4a;background:rgba(42,122,74,.1);border:1px solid rgba(42,122,74,.3);padding:.9rem 1.2rem;margin-bottom:1rem;">
+      ✓ Thank you! Your message has been received. We'll be in touch soon.
+    </div>
+    <div data-fs-error style="display:none;font-family:'Jost',sans-serif;font-size:.88rem;color:#b83a2a;background:rgba(184,58,42,.08);border:1px solid rgba(184,58,42,.25);padding:.9rem 1.2rem;margin-bottom:1rem;"></div>
+
+    <form id="contact-form" style="display:flex;flex-direction:column;">
       <div class="fi-row">
-        <div class="fg"><label class="fl">First Name</label><input type="text" class="fi" name="first_name" placeholder="Aminata" required></div>
-        <div class="fg"><label class="fl">Last Name</label><input type="text" class="fi" name="last_name" placeholder="Diallo" required></div>
+        <div class="fg">
+          <label class="fl">First Name</label>
+          <input type="text" id="first_name" name="first_name" class="fi" placeholder="Aminata" required data-fs-field>
+          <span data-fs-error="first_name" style="font-size:.75rem;color:#b83a2a;font-family:'Jost',sans-serif;"></span>
+        </div>
+        <div class="fg">
+          <label class="fl">Last Name</label>
+          <input type="text" id="last_name" name="last_name" class="fi" placeholder="Diallo" required data-fs-field>
+          <span data-fs-error="last_name" style="font-size:.75rem;color:#b83a2a;font-family:'Jost',sans-serif;"></span>
+        </div>
       </div>
-      <div class="fg"><label class="fl">Email Address</label><input type="email" class="fi" name="email" placeholder="aminata@example.com" required></div>
+      <div class="fg">
+        <label class="fl">Email Address</label>
+        <input type="email" id="email" name="email" class="fi" placeholder="aminata@example.com" required data-fs-field>
+        <span data-fs-error="email" style="font-size:.75rem;color:#b83a2a;font-family:'Jost',sans-serif;"></span>
+      </div>
       <div class="fg">
         <label class="fl">How You'd Like to Help</label>
-        <select class="fi fi-select" name="involvement">
+        <select name="involvement" class="fi fi-select" data-fs-field>
           <option value="" disabled selected>Select an option</option>
           <option>Volunteer</option>
           <option>Membership</option>
@@ -1100,9 +1116,20 @@ function toggleAccolades() {
           <option>General Enquiry</option>
         </select>
       </div>
-      <div class="fg"><label class="fl">Your Message</label><textarea class="fi fi-ta" name="message" placeholder="Tell us how you'd like to get involved..."></textarea></div>
-      <button type="submit" class="btn-submit">Send Message →</button>
+      <div class="fg">
+        <label class="fl">Your Message</label>
+        <textarea id="message" name="message" class="fi fi-ta" placeholder="Tell us how you'd like to get involved..." data-fs-field></textarea>
+        <span data-fs-error="message" style="font-size:.75rem;color:#b83a2a;font-family:'Jost',sans-serif;"></span>
+      </div>
+      <button type="submit" class="btn-submit" data-fs-submit-btn>Send Message →</button>
     </form>
+
+    <!-- Formspree Ajax library -->
+    <script>
+      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+      formspree('initForm', { formElement: '#contact-form', formId: 'mkoprdlv' });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   </div>
 </section>
 
