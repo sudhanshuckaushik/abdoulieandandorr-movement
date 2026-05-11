@@ -594,6 +594,19 @@ footer{
 /* ─── ANIMATIONS ─── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── PUBLICATIONS FEATURE CARD (Newsletter) ─── */
+.pub-card--feature{grid-column:1 / -1;display:grid;grid-template-columns:240px 1fr;gap:0;padding:0;overflow:hidden;background:var(--white);}
+.pub-card--feature .pub-feature-cover{background:var(--blue-deep);overflow:hidden;position:relative;min-height:280px;}
+.pub-card--feature .pub-feature-cover img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .5s ease;}
+.pub-card--feature:hover .pub-feature-cover img{transform:scale(1.04);}
+.pub-card--feature .pub-feature-body{padding:2rem 2.2rem;display:flex;flex-direction:column;justify-content:center;}
+.pub-card--feature .pub-feature-cta{font-family:'Jost',sans-serif;font-size:.66rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:1.2rem;display:inline-flex;align-items:center;gap:.5rem;}
+@media (max-width:760px){
+  .pub-card--feature{grid-template-columns:1fr;}
+  .pub-card--feature .pub-feature-cover{min-height:200px;}
+  .pub-card--feature .pub-feature-body{padding:1.6rem 1.4rem;}
+}
 </style>
 </head>
 <body>
@@ -803,6 +816,20 @@ footer{
     Commentary, analysis, and statements from Hon. Abdoulie Njai on governance, youth leadership, and Gambian policy.
   </p>
   <div class="pub-grid">
+
+    <a class="pub-card pub-card--feature" href="banjul-central-newsletter.pdf" target="_blank" rel="noopener">
+      <div class="pub-feature-cover">
+        <img src="images/newsletter-cover.jpg" alt="Banjul Central Newsletter — CHI LUMANEH cover">
+      </div>
+      <div class="pub-feature-body">
+        <span class="pub-type">Newsletter</span>
+        <div class="pub-title">Chi Lumaneh — Banjul Central Newsletter</div>
+        <div class="pub-meta">Hon. Abdoulie Njai · Latest Edition</div>
+        <div class="pub-excerpt">A full account of recent parliamentary work, community engagement, and the Andandorr Movement's priorities for Banjul Central — read the complete PDF.</div>
+        <span class="pub-feature-cta">Read the Newsletter &rarr;</span>
+      </div>
+    </a>
+
 
     <a class="pub-card" href="https://voiceoutdigital.com/banjul-central-nam-urges-thorough-review-of-starlink-licensing-process/" target="_blank">
       <span class="pub-type">Op-Ed</span>
@@ -1168,61 +1195,79 @@ function toggleAccolades() {
 
 
 <!-- ═══ NEWSLETTER POPUP MODAL ═══ -->
-<div id="newsletterModal" class="nl-overlay" role="dialog" aria-modal="true" aria-labelledby="nlTitle">
-  <div class="nl-card">
-    <button class="nl-close" id="nlClose" aria-label="Close">&times;</button>
-    <svg class="nl-logo" viewBox="-105 -105 210 210"><use href="#andandorr-logo"/></svg>
-    <div class="nl-eyebrow">Just Published</div>
-    <h3 class="nl-title" id="nlTitle">Read the Banjul Central<br><em>Newsletter</em></h3>
-    <div class="nl-rule"></div>
-    <p class="nl-desc">Catch up on the latest from Hon. Abdoulie Njai and the Andandorr Movement — community updates, parliamentary work, and what's next for Banjul Central.</p>
-    <div class="nl-btns">
-      <a href="banjul-central-newsletter.pdf" target="_blank" rel="noopener" class="nl-btn-primary" id="nlOpen">Read Newsletter &rarr;</a>
-      <button class="nl-btn-secondary" id="nlDismiss">Maybe Later</button>
+<div id="newsletterModal" class="nlmodal-overlay" role="dialog" aria-modal="true" aria-labelledby="nlmTitle">
+  <div class="nlmodal-card">
+    <button class="nlmodal-close" id="nlmClose" aria-label="Close">&times;</button>
+    <a href="banjul-central-newsletter.pdf" target="_blank" rel="noopener" class="nlmodal-cover-link" id="nlmCoverLink">
+      <img src="images/newsletter-cover.jpg" alt="Banjul Central Newsletter — CHI LUMANEH" class="nlmodal-cover">
+      <span class="nlmodal-cover-tag">View PDF</span>
+    </a>
+    <div class="nlmodal-body">
+      <div class="nlmodal-eyebrow">Just Published</div>
+      <h3 class="nlmodal-title" id="nlmTitle">Read the Banjul Central<br><em>Newsletter</em></h3>
+      <div class="nlmodal-rule"></div>
+      <p class="nlmodal-desc">Catch up on the latest from Hon. Abdoulie Njai and the Andandorr Movement — community updates, parliamentary work, and what's next for Banjul Central.</p>
+      <div class="nlmodal-btns">
+        <a href="banjul-central-newsletter.pdf" target="_blank" rel="noopener" class="nlmodal-btn-primary" id="nlmOpen">Read Newsletter &rarr;</a>
+        <button class="nlmodal-btn-secondary" id="nlmDismiss">Maybe Later</button>
+      </div>
     </div>
   </div>
 </div>
 
 <style>
 /* ─── NEWSLETTER POPUP ─── */
-.nl-overlay{position:fixed;inset:0;z-index:9999;background:rgba(15,30,84,.72);display:none;align-items:center;justify-content:center;padding:1.5rem;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:nlFade .35s ease;}
-.nl-overlay.is-open{display:flex;}
-.nl-card{position:relative;background:var(--white);max-width:480px;width:100%;padding:3.2rem 2.6rem 2.6rem;text-align:center;border-top:4px solid var(--gold);box-shadow:0 30px 80px rgba(15,30,84,.45);animation:nlPop .45s cubic-bezier(.2,.9,.3,1.2);}
-.nl-close{position:absolute;top:.8rem;right:1rem;width:34px;height:34px;background:transparent;border:none;font-size:1.8rem;line-height:1;color:var(--muted);cursor:pointer;transition:color .2s;font-family:'Jost',sans-serif;}
-.nl-close:hover{color:var(--blue);}
-.nl-logo{width:64px;height:64px;color:var(--gold);margin:0 auto 1.2rem;display:block;}
-.nl-eyebrow{font-family:'Jost',sans-serif;font-size:.6rem;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
-.nl-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,4vw,2.1rem);font-weight:700;color:var(--blue);line-height:1.15;margin-bottom:1.1rem;}
-.nl-title em{font-style:italic;color:var(--gold);}
-.nl-rule{width:48px;height:1.5px;background:var(--gold);margin:0 auto 1.1rem;}
-.nl-desc{font-family:'Jost',sans-serif;font-size:.88rem;font-weight:300;line-height:1.75;color:var(--muted);margin-bottom:1.8rem;}
-.nl-btns{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;}
-.nl-btn-primary{font-family:'Jost',sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;background:var(--blue);color:var(--white);padding:.85rem 1.8rem;text-decoration:none;border:1px solid var(--blue);transition:all .2s;display:inline-block;cursor:pointer;}
-.nl-btn-primary:hover{background:var(--gold);border-color:var(--gold);}
-.nl-btn-secondary{font-family:'Jost',sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;background:transparent;color:var(--muted);padding:.85rem 1.6rem;border:1px solid rgba(0,0,0,.1);cursor:pointer;transition:all .2s;}
-.nl-btn-secondary:hover{color:var(--blue);border-color:var(--blue);}
-@keyframes nlFade{from{opacity:0}to{opacity:1}}
-@keyframes nlPop{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
-@media (max-width:520px){.nl-card{padding:2.4rem 1.6rem 2rem;}.nl-btns{flex-direction:column;}.nl-btn-primary,.nl-btn-secondary{width:100%;}}
+.nlmodal-overlay{position:fixed;inset:0;z-index:9999;background:rgba(15,30,84,.72);display:none;align-items:center;justify-content:center;padding:1.5rem;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:nlmFade .35s ease;overflow-y:auto;}
+.nlmodal-overlay.is-open{display:flex;}
+.nlmodal-card{position:relative;background:var(--white);max-width:780px;width:100%;display:grid;grid-template-columns:42% 58%;border-top:4px solid var(--gold);box-shadow:0 30px 80px rgba(15,30,84,.45);animation:nlmPop .45s cubic-bezier(.2,.9,.3,1.2);overflow:hidden;}
+.nlmodal-close{position:absolute;top:.5rem;right:.7rem;width:36px;height:36px;background:rgba(255,255,255,.9);border:none;font-size:1.8rem;line-height:1;color:var(--blue);cursor:pointer;transition:all .2s;font-family:'Jost',sans-serif;border-radius:50%;z-index:2;display:flex;align-items:center;justify-content:center;}
+.nlmodal-close:hover{background:var(--gold);color:var(--white);}
+.nlmodal-cover-link{position:relative;display:block;background:var(--blue-deep);overflow:hidden;}
+.nlmodal-cover{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s ease;}
+.nlmodal-cover-link:hover .nlmodal-cover{transform:scale(1.03);}
+.nlmodal-cover-tag{position:absolute;bottom:0;left:0;right:0;padding:.7rem 1rem;background:linear-gradient(to top,rgba(15,30,84,.92) 0%,transparent 100%);font-family:'Jost',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-lt);text-align:center;}
+.nlmodal-body{padding:2.4rem 2rem 2rem;text-align:left;display:flex;flex-direction:column;justify-content:center;}
+.nlmodal-eyebrow{font-family:'Jost',sans-serif;font-size:.6rem;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;display:flex;align-items:center;gap:.7rem;}
+.nlmodal-eyebrow::before{content:'';width:18px;height:1px;background:var(--gold);}
+.nlmodal-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3.4vw,2rem);font-weight:700;color:var(--blue);line-height:1.15;margin-bottom:.9rem;}
+.nlmodal-title em{font-style:italic;color:var(--gold);}
+.nlmodal-rule{width:42px;height:1.5px;background:var(--gold);margin-bottom:1rem;}
+.nlmodal-desc{font-family:'Jost',sans-serif;font-size:.85rem;font-weight:300;line-height:1.7;color:var(--muted);margin-bottom:1.5rem;}
+.nlmodal-btns{display:flex;gap:.6rem;flex-wrap:wrap;}
+.nlmodal-btn-primary{font-family:'Jost',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;background:var(--blue);color:var(--white);padding:.8rem 1.6rem;text-decoration:none;border:1px solid var(--blue);transition:all .2s;display:inline-block;cursor:pointer;}
+.nlmodal-btn-primary:hover{background:var(--gold);border-color:var(--gold);}
+.nlmodal-btn-secondary{font-family:'Jost',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;background:transparent;color:var(--muted);padding:.8rem 1.4rem;border:1px solid rgba(0,0,0,.1);cursor:pointer;transition:all .2s;}
+.nlmodal-btn-secondary:hover{color:var(--blue);border-color:var(--blue);}
+@keyframes nlmFade{from{opacity:0}to{opacity:1}}
+@keyframes nlmPop{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media (max-width:680px){
+  .nlmodal-card{grid-template-columns:1fr;max-width:420px;}
+  .nlmodal-cover-link{max-height:240px;}
+  .nlmodal-cover{height:240px;}
+  .nlmodal-body{padding:1.8rem 1.4rem 1.6rem;}
+  .nlmodal-btns{flex-direction:column;}
+  .nlmodal-btn-primary,.nlmodal-btn-secondary{width:100%;text-align:center;}
+}
 </style>
 
 <script>
 (function(){
   var modal = document.getElementById('newsletterModal');
-  var closeBtn = document.getElementById('nlClose');
-  var dismissBtn = document.getElementById('nlDismiss');
-  var openBtn = document.getElementById('nlOpen');
+  var closeBtn = document.getElementById('nlmClose');
+  var dismissBtn = document.getElementById('nlmDismiss');
+  var openBtn = document.getElementById('nlmOpen');
+  var coverLink = document.getElementById('nlmCoverLink');
   function openModal(){ modal.classList.add('is-open'); document.body.style.overflow='hidden'; }
   function closeModal(){ modal.classList.remove('is-open'); document.body.style.overflow=''; }
   window.addEventListener('load', function(){ setTimeout(openModal, 700); });
   closeBtn.addEventListener('click', closeModal);
   dismissBtn.addEventListener('click', closeModal);
   openBtn.addEventListener('click', closeModal);
+  coverLink.addEventListener('click', closeModal);
   modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
 })();
 </script>
-
 
 </body>
 </html>
