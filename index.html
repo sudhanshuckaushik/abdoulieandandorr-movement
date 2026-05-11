@@ -1166,5 +1166,63 @@ function toggleAccolades() {
   </div>
 </footer>
 
+
+<!-- ═══ NEWSLETTER POPUP MODAL ═══ -->
+<div id="newsletterModal" class="nl-overlay" role="dialog" aria-modal="true" aria-labelledby="nlTitle">
+  <div class="nl-card">
+    <button class="nl-close" id="nlClose" aria-label="Close">&times;</button>
+    <svg class="nl-logo" viewBox="-105 -105 210 210"><use href="#andandorr-logo"/></svg>
+    <div class="nl-eyebrow">Just Published</div>
+    <h3 class="nl-title" id="nlTitle">Read the Banjul Central<br><em>Newsletter</em></h3>
+    <div class="nl-rule"></div>
+    <p class="nl-desc">Catch up on the latest from Hon. Abdoulie Njai and the Andandorr Movement — community updates, parliamentary work, and what's next for Banjul Central.</p>
+    <div class="nl-btns">
+      <a href="banjul-central-newsletter.pdf" target="_blank" rel="noopener" class="nl-btn-primary" id="nlOpen">Read Newsletter &rarr;</a>
+      <button class="nl-btn-secondary" id="nlDismiss">Maybe Later</button>
+    </div>
+  </div>
+</div>
+
+<style>
+/* ─── NEWSLETTER POPUP ─── */
+.nl-overlay{position:fixed;inset:0;z-index:9999;background:rgba(15,30,84,.72);display:none;align-items:center;justify-content:center;padding:1.5rem;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:nlFade .35s ease;}
+.nl-overlay.is-open{display:flex;}
+.nl-card{position:relative;background:var(--white);max-width:480px;width:100%;padding:3.2rem 2.6rem 2.6rem;text-align:center;border-top:4px solid var(--gold);box-shadow:0 30px 80px rgba(15,30,84,.45);animation:nlPop .45s cubic-bezier(.2,.9,.3,1.2);}
+.nl-close{position:absolute;top:.8rem;right:1rem;width:34px;height:34px;background:transparent;border:none;font-size:1.8rem;line-height:1;color:var(--muted);cursor:pointer;transition:color .2s;font-family:'Jost',sans-serif;}
+.nl-close:hover{color:var(--blue);}
+.nl-logo{width:64px;height:64px;color:var(--gold);margin:0 auto 1.2rem;display:block;}
+.nl-eyebrow{font-family:'Jost',sans-serif;font-size:.6rem;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.nl-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,4vw,2.1rem);font-weight:700;color:var(--blue);line-height:1.15;margin-bottom:1.1rem;}
+.nl-title em{font-style:italic;color:var(--gold);}
+.nl-rule{width:48px;height:1.5px;background:var(--gold);margin:0 auto 1.1rem;}
+.nl-desc{font-family:'Jost',sans-serif;font-size:.88rem;font-weight:300;line-height:1.75;color:var(--muted);margin-bottom:1.8rem;}
+.nl-btns{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;}
+.nl-btn-primary{font-family:'Jost',sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;background:var(--blue);color:var(--white);padding:.85rem 1.8rem;text-decoration:none;border:1px solid var(--blue);transition:all .2s;display:inline-block;cursor:pointer;}
+.nl-btn-primary:hover{background:var(--gold);border-color:var(--gold);}
+.nl-btn-secondary{font-family:'Jost',sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;background:transparent;color:var(--muted);padding:.85rem 1.6rem;border:1px solid rgba(0,0,0,.1);cursor:pointer;transition:all .2s;}
+.nl-btn-secondary:hover{color:var(--blue);border-color:var(--blue);}
+@keyframes nlFade{from{opacity:0}to{opacity:1}}
+@keyframes nlPop{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media (max-width:520px){.nl-card{padding:2.4rem 1.6rem 2rem;}.nl-btns{flex-direction:column;}.nl-btn-primary,.nl-btn-secondary{width:100%;}}
+</style>
+
+<script>
+(function(){
+  var modal = document.getElementById('newsletterModal');
+  var closeBtn = document.getElementById('nlClose');
+  var dismissBtn = document.getElementById('nlDismiss');
+  var openBtn = document.getElementById('nlOpen');
+  function openModal(){ modal.classList.add('is-open'); document.body.style.overflow='hidden'; }
+  function closeModal(){ modal.classList.remove('is-open'); document.body.style.overflow=''; }
+  window.addEventListener('load', function(){ setTimeout(openModal, 700); });
+  closeBtn.addEventListener('click', closeModal);
+  dismissBtn.addEventListener('click', closeModal);
+  openBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
+})();
+</script>
+
+
 </body>
 </html>
